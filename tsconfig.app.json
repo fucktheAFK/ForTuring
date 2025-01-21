@@ -1,0 +1,30 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "compilerOptions": {
+    "composite": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "types": ["vite/client", "element-plus/global"], // 添加 vite/client 类型定义
+    "moduleResolution": "node", // 使用 Node.js 模块解析策略
+    "noEmit": false,
+    "emitDeclarationOnly": true,
+    "outDir": "./dist/types", // 设置编译输出目录为 dist/types
+    "rootDir": "./src", // 指定源文件的根目录为 src
+    "strict": true, // 启用所有严格的类型检查选项
+    "esModuleInterop": true, // 允许从 ES 模块导入 CommonJS 模块
+    "skipLibCheck": true, // 跳过库文件的类型检查以加快编译速度
+    "forceConsistentCasingInFileNames": true // 强制文件名大小写一致
+  },
+  "include": [
+    "env.d.ts",
+    "src/**/*",
+    "src/**/*.vue"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist", // 确保排除掉输出目录
+    "src/**/__tests__/*"
+  ]
+}
